@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAJHOL BRAND</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #ffffff;
+    }
+
+    /* ===== الشريط العلوي ===== */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        z-index: 1000;
+    }
+
+    .navbar img {
+        height: 65px;
+    }
+
+    /* ===== WELCOME ===== */
+    .welcome-section {
+        margin-top: 120px;
+        text-align: center;
+    }
+
+    .welcome-section h1 {
+        font-size: 60px;
+        margin: 20px 0;
+        color: #111;
+        letter-spacing: 4px;
+    }
+
+    /* ===== الصور ===== */
+    .full-image img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* ===== النص تحت الصورة ===== */
+    .brand-text {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 4px;
+        margin: 40px 20px;
+        color: #111;
+    }
+
+    /* ===== شريط DROP VIP ===== */
+    .black-bar {
+        background-color: #000;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .moving-text {
+        white-space: nowrap;
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 6px;
+        color: #fff;
+        animation: moveText 8s linear infinite;
+    }
+
+    @keyframes moveText {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* ====== 📱 تحسين للموبايل ====== */
+    @media (max-width: 768px) {
+
+        .navbar img {
+            height: 50px;
+        }
+
+        .welcome-section h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        .full-image img {
+            height: 350px;
+        }
+
+        .brand-text {
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .black-bar {
+            height: 60px;
+        }
+
+        .moving-text {
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- الشريط العلوي -->
+<div class="navbar">
+    <img src="logo.png" alt="MAJHOL Logo">
+</div>
+
+<!-- WELCOME -->
+<div class="welcome-section">
+    <h1>WELCOME</h1>
+</div>
+
+<!-- صورة 1 -->
+<div class="full-image">
+    <img src="image1.jpg" alt="Image 1">
+</div>
+
+<!-- صورة 2 -->
+<div class="full-image">
+    <img src="image2.jpg" alt="Image 2">
+</div>
+
+<!-- النص -->
+<div class="brand-text">
+    MAJHOL BRAND | MADE IN MOROCCO
+</div>
+
+<!-- شريط DROP VIP -->
+<div class="black-bar">
+    <div class="moving-text">
+        DROP VIP — DROP VIP — DROP VIP — DROP VIP —
+    </div>
+</div>
+
+</body>
+</html>
