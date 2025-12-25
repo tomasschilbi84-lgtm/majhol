@@ -6,153 +6,219 @@
 <title>MAJHOL BRAND</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #ffffff;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff;
+}
+
+/* ===== INTRO VIDEO ===== */
+.intro-video{
+    position:fixed;
+    inset:0;
+    background:#000;
+    z-index:5000;
+}
+.intro-video video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    cursor:pointer;
+}
+.hide{display:none;}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    padding:12px 0;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    z-index:1000;
+}
+.navbar img{height:65px;}
+
+/* ===== WELCOME ===== */
+.welcome-section{
+    margin-top:120px;
+    text-align:center;
+}
+.welcome-section h1{
+    font-size:60px;
+    letter-spacing:4px;
+}
+
+/* ===== PRODUCTS ===== */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    padding:50px 60px;
+}
+.product-card{
+    text-align:center;
+    transition:.3s;
+}
+.product-card img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+}
+.product-card h3{
+    margin:15px 0 5px;
+    font-size:18px;
+    letter-spacing:2px;
+}
+.product-card span{
+    font-size:13px;
+    letter-spacing:3px;
+    color:#777;
+}
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+/* ===== FULL IMAGES ===== */
+.full-image img{
+    width:100%;
+    height:600px;
+    object-fit:cover;
+    display:block;
+}
+
+/* ===== TEXT ===== */
+.brand-text{
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:4px;
+    margin:40px 20px;
+}
+
+/* ===== DROP VIP BAR ===== */
+.black-bar{
+    background:#000;
+    height:80px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+.moving-text{
+    color:#fff;
+    font-size:32px;
+    letter-spacing:6px;
+    white-space:nowrap;
+    animation:move 8s linear infinite;
+}
+@keyframes move{
+    from{transform:translateX(100%)}
+    to{transform:translateX(-100%)}
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+    .navbar img{height:50px;}
+    .welcome-section h1{font-size:36px;}
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        padding:30px 20px;
     }
-
-    /* ===== الشريط العلوي ===== */
-    .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 12px 0;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        z-index: 1000;
-    }
-
-    .navbar img {
-        height: 65px;
-    }
-
-    /* ===== WELCOME ===== */
-    .welcome-section {
-        margin-top: 120px;
-        text-align: center;
-    }
-
-    .welcome-section h1 {
-        font-size: 60px;
-        margin: 20px 0;
-        color: #111;
-        letter-spacing: 4px;
-    }
-
-    /* ===== الصور ===== */
-    .full-image img {
-        width: 100%;
-        height: 600px;
-        object-fit: cover;
-        display: block;
-    }
-
-    /* ===== النص تحت الصورة ===== */
-    .brand-text {
-        text-align: center;
-        font-size: 28px;
-        font-weight: bold;
-        letter-spacing: 4px;
-        margin: 40px 20px;
-        color: #111;
-    }
-
-    /* ===== شريط DROP VIP ===== */
-    .black-bar {
-        background-color: #000;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .moving-text {
-        white-space: nowrap;
-        font-size: 32px;
-        font-weight: bold;
-        letter-spacing: 6px;
-        color: #fff;
-        animation: moveText 8s linear infinite;
-    }
-
-    @keyframes moveText {
-        from {
-            transform: translateX(100%);
-        }
-        to {
-            transform: translateX(-100%);
-        }
-    }
-
-    /* ====== 📱 تحسين للموبايل ====== */
-    @media (max-width: 768px) {
-
-        .navbar img {
-            height: 50px;
-        }
-
-        .welcome-section h1 {
-            font-size: 36px;
-            letter-spacing: 2px;
-        }
-
-        .full-image img {
-            height: 350px;
-        }
-
-        .brand-text {
-            font-size: 18px;
-            letter-spacing: 2px;
-        }
-
-        .black-bar {
-            height: 60px;
-        }
-
-        .moving-text {
-            font-size: 20px;
-            letter-spacing: 3px;
-        }
-    }
+    .product-card img{height:260px;}
+    .full-image img{height:350px;}
+    .brand-text{font-size:18px;}
+    .moving-text{font-size:20px;}
+}
 </style>
 </head>
+
 <body>
 
-<!-- الشريط العلوي -->
-<div class="navbar">
-    <img src="logo.png" alt="MAJHOL Logo">
+<!-- INTRO -->
+<div class="intro-video" id="intro">
+    <video id="introVideo" muted playsinline poster="poster.jpg">
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+    <audio id="introMusic">
+        <source src="intro-music.mp3" type="audio/mp3">
+    </audio>
 </div>
 
-<!-- WELCOME -->
-<div class="welcome-section">
-    <h1>WELCOME</h1>
-</div>
+<!-- CONTENT -->
+<div id="content" class="hide">
 
-<!-- صورة 1 -->
-<div class="full-image">
-    <img src="image1.jpg" alt="Image 1">
-</div>
-
-<!-- صورة 2 -->
-<div class="full-image">
-    <img src="image2.jpg" alt="Image 2">
-</div>
-
-<!-- النص -->
-<div class="brand-text">
-    MAJHOL BRAND | MADE IN MOROCCO
-</div>
-
-<!-- شريط DROP VIP -->
-<div class="black-bar">
-    <div class="moving-text">
-        DROP VIP — DROP VIP — DROP VIP — DROP VIP —
+    <div class="navbar">
+        <img src="logo.png">
     </div>
+
+    <div class="welcome-section">
+        <h1>WELCOME</h1>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products">
+        <div class="product-card">
+            <img src="product1.jpg">
+            <h3>MAJHOL HOODIE</h3>
+            <span>DROP VIP</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg">
+            <h3>MAJHOL T-SHIRT</h3>
+            <span>LIMITED</span>
+        </div>
+        <div class="product-card">
+            <img src="product3.jpg">
+            <h3>MAJHOL JACKET</h3>
+            <span>NEW</span>
+        </div>
+        <div class="product-card">
+            <img src="product4.jpg">
+            <h3>MAJHOL CAP</h3>
+            <span>EXCLUSIVE</span>
+        </div>
+    </div>
+
+    <!-- FULL IMAGES -->
+    <div class="full-image">
+        <img src="image1.jpg">
+    </div>
+
+    <div class="full-image">
+        <img src="téléchargement.gif">
+    </div>
+
+    <div class="brand-text">
+        MAJHOL BRAND | MADE IN MOROCCO
+    </div>
+
+    <div class="black-bar">
+        <div class="moving-text">
+            DROP VIP — DROP VIP — DROP VIP —
+        </div>
+    </div>
+
 </div>
+
+<script>
+const video=document.getElementById("introVideo");
+const music=document.getElementById("introMusic");
+const intro=document.getElementById("intro");
+const content=document.getElementById("content");
+
+video.addEventListener("click",()=>{
+    video.play();
+    music.play();
+});
+
+video.onended=()=>{
+    music.pause();
+    intro.style.display="none";
+    content.classList.remove("hide");
+};
+</script>
 
 </body>
 </html>
